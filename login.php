@@ -48,7 +48,7 @@ session_start();
 		Password:
 		<input name="password" type="password" id="password" size="20">
 		<br /> <br />
-		<button class="w3-button w3-black w3-padding-large w3-large w3-margin-center" name="submit">Login</button>
+		<input type="submit" class = "w3-button w3-black w3-padding-large w3-large w3-margin-top" name="submit" value="Login">
 
 		</form>
 	   </td>
@@ -70,14 +70,14 @@ session_start();
 
 <?php
 include("connect.inc.php");
-$user=trim($_POST['username']);
-$pass=trim($_POST['password']);
 
-if ($_POST['username'] && $_POST['password']) {
-	$query = "SELECT fac_ID, passwd FROM FACULTY WHERE fac_ID='$user' AND passwd='$pass'";
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+	$user=trim($_POST['username']);
+	$pass=trim($_POST['password']);
+	$query = "SELECT user_name, login_password FROM user WHERE user_name='$user' AND login_password='$pass'";
 	$result = mysqli_query($conn, $query);
 
-	if (!result)
+	if (!$result)
 		die("Cannot process select query");
 
 	$num = mysqli_num_rows($result);
@@ -86,7 +86,7 @@ if ($_POST['username'] && $_POST['password']) {
 			$_SESSION['id'] = $user;
 			$_SESSION['logABC'] = "FREE";
 			
-			echo "<META HTTP-EQUIV=\"refresh\" content=\"0; URL=searchPage.php\"> ";
+			echo "<META HTTP-EQUIV=\"refresh\" content=\"0; URL=decisionPage.html\"> ";
 		}
 	}
 	else {
