@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Madison SubLeases</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-home {font-size:250px}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">The Team</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact Us</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">About Us</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">The Team</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Contact Us</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:80px 16px">
+  <h1 class="w3-margin w3-jumbo">Madison SubLeases</h1>
+  <p class="w3-xlarge">Revolutionize Your Subleasing Process</p>
+  <form method="post" action="login.php">
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+  </form>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container" style="background-image: url(./carillontower.jpeg); background-size: cover;">
+  <div class="w3-content">
+    <div class="w3-half w3-white" style= "padding: 1em; opacity:0.875">
+      <h1>Looking to list or find sublet properties?</h1>
+      <h5 class="w3-padding-32 w3-white"> Madison SubLease provides an interactive platform to list or search sublet properties. If you are a lessor, conveniently list your property and find success. If you are a lessee, you can find your next temporary home through searching by geography, price, and other features. Just click below to learn more about us!</h5>
+	  <form method="post" action="aboutus.php">
+      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Learn More</button>
+      </form>
+	  </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-24 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-left w3-padding-32">
+      <i class="fa fa-home w3-padding-48 w3-text-red w3-margin-center"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>What's New?</h1>
+      <h5 class="w3-padding-24">Over the past months, Madison SubLease has been adding several new features to our platform. We are excited to share these helpful nagivation tools below to enhance your experience in finding a new home.</h5>
+
+      <p class="w3-text-grey">One of the newest additions to Madison SubLease is the feature to organize your search results. To match your preferences, we added a new search filter where you are able to narrow your search options through selecting price range, location, parking, bedrooms, pet options, and bathrooms. We hope this new update can provide the Madison SubLease community with a more extensive experience. Besides this feature, we also can provide users their own accounts. Users can sign up through a portal. Through signing up, users can save their sublets or message subletters to keep track of their rental options. We are continuously updated our software so please feel free to contact us through the social media links listed below.</p>
+      
+      <form method="post" action="searchPage.php">
+      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Find or Post Sublet Here</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+  <div class="w3-xlarge w3-padding-32">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
