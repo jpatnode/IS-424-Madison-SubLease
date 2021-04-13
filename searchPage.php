@@ -14,6 +14,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </style>
 <body>
 
+<?php
+// $id=$_SESSION['id'];
+?>
+
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
@@ -28,134 +32,182 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Header -->
-<header class="w3-container w3-white w3-center" style="padding:64px 16px">
-  <h1 class="w3-margin w3-jumbo">Search for Your Perfect Sublease</h1>
+<header class="w3-container w3-red w3-center" style="padding:32px 24px">
+  <h1 class="w3-margin w3-jumbo">Begin Your Search</h1>
 </header>
+  
+<div class="w3-row-padding w3-light-grey w3-padding-24 w3-container">
+  <div class="w3-content">
+      <h4 class="w3-padding-24">Here, you will be able to find the listing (or even listings!) that fulfill all of your needs and desires. Below, you will find
+  a series of options that will help us filter your search and find these listings.</h4>
+  </div>
+</div>
 
 <br>
- <div class="w3-row-padding w3-padding-64 w3-container">
+ <div class="w3-row-padding w3-padding-64 w3-container" <div class="w3-padding-64 w3-container" style="background-image: url(./madison.jpg); background-size: cover;">
   <div class="w3-content">
-    <div class="w3-container w3-red">
-	<table>
+    <div class="w3-container w3-white" style="padding: 1em; opacity:.875">
+	<table style="text-align: center" align="center">
 	<tr>
 	<td>
 	<h2 align="center">Choose Your Filters</h2>
-	<form method="post" action="listingreport.php">
+	<form method="post" action="searchPage.php">
 	<h4> Choose your price range: </h4>
-	<select id="price" name="price"> 
-		<option value="0250">$0-$250</option>
-		<option value="250500">$250-$500</option>
-	    <option value="500750">$500-$750</option>
-        <option value="7501000">$750-$1000</option>
-		<option value="10001200">$1000-$1200</option>
-		<option value="1200more">$1200+</option>
+	Minimum:
+	<select id="minprice" name="minprice" align="center" style="width:100px; bgcolor:red;"> 
+		<option value=0>$0</option>
+		<option value=500>$500</option>
+	    <option value=750>$750</option>
+        <option value=1000>$1000</option>
+		<option value=1500>$1500</option>
+		<option value=2000>$2000</option>
+	</select>
+	Maximum:
+	<select id="maxprice" name="maxprice" style="width:100px; bgcolor:red;"> 
+		<option value=1200>$500</option>
+		<option value=1500>$1000</option>
+	    <option value=1800>$1500</option>
+        <option value=2250>$2000</option>
+		<option value=2500>$2500</option>
+		<option value=3000>$3000</option>
+		<option value=3500>$3500</option>
+		<option value=4000>$4000</option>
 	</select>
 	<br>
 	<h4> Choose your preferred part of Madison: </h4>
 	<select id="location" name="location"> 
-		<option value="statelangdon">State-Langdon</option>
-		<option value="southcamp">South Campus</option>
-	    <option value="mifflin">Mifflin</option>
-        <option value="capitol">Capitol Square</option>
-		<option value="regent">Regent</option>
-		<option value="universityave">University Ave</option>
-	</select>
-	<br>
-	<h4> Choose your preference for parking: </h4>
-	<select id="parking" name="parking"> 
-		<option value="yes">Yes</option>
-		<option value="no">No</option>
+		<option value="State-Langdon">State-Langdon</option>
+		<option value="South Campus">South Campus</option>
+	    <option value="Mifflin">Mifflin</option>
+        <option value="Capitol Square">Capitol Square</option>
+		<option value="Regent">Regent</option>
+		<option value="University Ave">University Ave</option>
 	</select>
 	<br>
 	<h4> Choose your preferred number of bedrooms: </h4>
-	<select id="bedrooms" name="bedrooms"> 
-		<option value="0">0</option>
-		<option value="1">1</option>
-	    <option value="2">2</option>
-        <option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-	</select>
-	<br>
-	<h4> Will you be bringing pets? </h4>
-	<select id="pets" name="pets"> 
-		<option value="yes">Yes</option>
-		<option value="no">No</option>
+	<select id="bedrooms" name="bedrooms" style="width:100px; bgcolor:red;"> 
+		<option value=0>0</option>
+		<option value=1>1</option>
+	    <option value=2>2</option>
+        <option value=3>3</option>
+		<option value=4>4</option>
+		<option value=5>5</option>
 	</select>
 	<br>
 	<h4> Choose your preferred number of bathrooms: </h4>
-	<select id="bathrooms" name="bathrooms"> 
-		<option value="0">0</option>
-		<option value="1">1</option>
-	    <option value="2">2</option>
-        <option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
+	<select id="bathrooms" name="bathrooms" style="width:100px; bgcolor:red;"> 
+		<option value=0>0</option>
+		<option value=1>1</option>
+	    <option value=2>2</option>
+        <option value=3>3</option>
+		<option value=4>4</option>
+		<option value=5>5</option>
+	</select>
+	<br>
+	<h4> Choose your preference for parking: </h4>
+	<select id="parking" name="parking" style="width:100px; bgcolor:red; "> 
+		<option value=1>Yes</option>
+		<option value=0>No</option>
+	</select>
+	<br>
+	<h4> Will you be bringing pets? </h4>
+	<select id="pets" name="pets" style="width:100px; bgcolor:red;"> 
+		<option value=1>Yes</option>
+		<option value=0>No</option>
 	</select>
 	<br> <br>
-	<input type="submit" name="searchResult" value="Search">
+	<input type="submit" class = "w3-button w3-black w3-padding-large w3-large w3-margin-top" name="searchResult" value="Search">
 	</form>
 	<br>
-	</td>
-	<td align="right">
-	<img src="marling.jpg" width=400 align="right">
 	</td> </tr> </table>
     </div>
 
   </div>
 </div>
 
-
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+	<h3> Your Search Results </h3>
 <?php
 include("connect.inc.php");
-include("auth.inc.php");
-
-$id=$_SESSION['id'];
+//include("auth.inc.php");
 
 $count = 0;
-if ($_POST['searchResult']) {
-	$price=trim($_POST['price']);
+if (isset($_POST['searchResult'])) {
+	$minimum=trim($_POST['minprice']);
+	$maximum=trim($_POST['maxprice']);
 	$location=trim($_POST['location']);
 	$parking=trim($_POST['parking']);
 	$bedrooms=trim($_POST['bedrooms']);
 	$pets=trim($_POST['pets']);
 	$bathrooms=trim($_POST['bathrooms']);
-	$query = "SELECT rent, address, parking, bedrooms, pets, bathrooms FROM LISTING WHERE rent='$price' AND address='$location' AND parking='$parking' AND bedrooms='$bedrooms' AND pets='$pets' AND bathrooms='$bathrooms'";
+	$query = "SELECT street_address, price, description, parking, bedrooms, pets, bathrooms FROM LISTING WHERE price BETWEEN '$minimum' AND '$maximum'
+	AND description='$location' AND parking='$parking' AND bedrooms='$bedrooms' AND pets='$pets' AND bathrooms='$bathrooms'";
 	$result = mysqli_query($conn, $query);
 
-	if (!result) {
+	if (!$result) {
 		die("Cannot process select query");
 	}
 	
 	$num = mysqli_num_rows($result);
 	if ($num>0) {
-		echo "<table border=1 width=1000> <tr>";
+		echo "<table width=950> <tr bgcolor='#ff0000'>";
 		echo "<td> Address </td>";
-		echo "<td> Lease Type </td>";
+		echo "<td> General Location </td>";
 		echo "<td> Bedrooms </td>";
 		echo "<td> Bathrooms </td>";
-		echo "<td> Rent Per Month </td";
-		echo "<td> Posted By </td>";
+		echo "<td> Rent Per Month </td>";
+		echo "<td> Parking </td>";
+		echo "<td> Pets </td></tr>";
 		for ($i=0;$i<$num;$i++) {
 			if ($count==0) {
-				while ($row1 = mysqli_fetch_assoc($resultcon)) {
+				while ($row = mysqli_fetch_assoc($result)) {
 					echo "<tr>";
-					echo "<td>".$row["address"]."</td>";
+					echo "<td>".$row["street_address"]."</td>";
+					echo "<td>".$row["description"]."</td>";
 					echo "<td>".$row["bedrooms"]."</td>";
 					echo "<td>".$row["bathrooms"]."</td>";
-					echo "<td>".$row["rent"]."</td>";
-					echo "<td>".$row["user_name"]."</td>";
+					echo "<td>".$row["price"]."</td>";
+					$parkingYN = $row["parking"];
+					if ($parkingYN == 1) {
+						echo "<td> Yes </td>";
+					}
+					else {
+						echo "<td> No </td>";
+					}
+					$petsYN = $row["pets"];
+					if ($petsYN == 1) {
+						echo "<td> Yes </td>";
+					}
+					else {
+						echo "<td> No </td>";
+					}
 					$count = 1;
 				}
 			}
 			else {
-				while ($row1 = mysqli_fetch_assoc($resultcon)) {
+				while ($row = mysqli_fetch_assoc($result)) {
 					echo "<tr bgcolor=CCD1AB>";
-					echo "<td>".$row["address"]."</td>";
+					echo "<td>".$row["street_address"]."</td>";
+					echo "<td>".$row["description"]."</td>";
 					echo "<td>".$row["bedrooms"]."</td>";
 					echo "<td>".$row["bathrooms"]."</td>";
-					echo "<td>".$row["rent"]."</td>";
-					echo "<td>".$row["user_name"]."</td>";
+					echo "<td>".$row["price"]."</td>";
+					$parkingYN = $row["parking"];
+					if ($parkingYN == 1) {
+						echo "<td> Yes </td>";
+					}
+					else {
+						echo "<td> No </td>";
+					}
+					$petsYN = $row["pets"];
+					if ($petsYN == 1) {
+						echo "<td> Yes </td>";
+					}
+					else {
+						echo "<td> No </td>";
+					}
 					$count = 0;
 				}
 			}
@@ -168,18 +220,9 @@ if ($_POST['searchResult']) {
 
 mysqli_close($conn);
 ?>
-
-<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-  <div class="w3-xlarge w3-padding-32">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
- </div>
- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
+</div>
+</div>
+</div>
 
 </body>
 </html>
