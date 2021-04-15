@@ -12,37 +12,17 @@
 </head>
 
 <style>
-    .box:hover .image{
-        opacity: .5;
-        background-color: red;
-    }
 
-    .box:hover .middle{
-        opacity: 1;
-    } 
 
-    .middle1:hover .text{
-        opacity: 1;
-    }
-
-    .text {
-        background-color: #4CAF50;
-        color: white;
-        font-size: 16px;
-        padding: 16px 32px;
-    }
-
-    .middle {
-        transition: .5s ease;
-        opacity: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        text-align: center; 
+/* Weird: image sizing worked with "img" as id for all images but not class="img" */
+.box{
+    height: 400px;
 }
+#img{
+    height: 300px;
+} 
 </style>
+
 <body>
     
     <!-- Navbar -->
@@ -64,76 +44,73 @@
 </header>
 
 
-<!-- Can't get the hover to work
-          on the listings   -->
 
 <!-- images-->
 <div class="section">
     <div class="columns">
         <!-- col 1 -->
         <div class="img column is-one-quarter">
-            <h3>Listing 1 Title</h3>
-            <h4>Listing 1 Region</h4>
+            <!-- Will need to 
+            link the title and region headings
+        with the listing -->
+            <h3><b>1 Bedroom - Beautiful View - The James</b></h3>
+            <h4><b>University Ave</b></h4>
             <div class="box">
                 <div class="image">
-                    <b>Listing's first image</b> <br>
-                    <!-- Insert image here -->
-                     ipsum dolor sit amet consectetur adipisicing elit. Corporis dolore dicta molestiae quos deserunt qui quas quisquam explicabo. Alias, facilis fugit omnis ipsam exercitationem aliquid dicta! Totam sapiente ipsa illum.
+                    <img id="img" src="images/listing1.0.jpg" alt="oops">
                 </div>
 
-                <div class="middle">
-                    <div class="text">Full Listing</div>
+                <br><div class="w3-hover-opacity">
+                    <h5 class="w3-hover-black has-text-centered"><b>Full Listing</b></h5>
+                    <a href="listing/listing#/index.html"></a>
                 </div>
             </div>
         </div>
 
         <!-- col 2 -->
         <div class="column is-one-quarter">
-            <h3>Listing 2 Title</h3>
-            <h4>Listing 2 Region</h4>
+            <h3><b>Large Bedroom near Langdon</b></h3>
+            <h4><b>State-Langdon</b></h4>
             <div class="box">
                 <div class="image">
-                    <b>Listing's first image</b> <br>
-                    <!-- Insert image here -->
-                     ipsum dolor sit amet consectetur adipisicing elit. Corporis dolore dicta molestiae quos deserunt qui quas quisquam explicabo. Alias, facilis fugit omnis ipsam exercitationem aliquid dicta! Totam sapiente ipsa illum.
+                    <img id="img" src="images/listing2.0.jpg" alt="oops">
                 </div>
 
-                <div class="middle">
-                    <div class="text">Full Listing</div>
+                <br><div class="w3-hover-opacity">
+                    <h5 class="w3-hover-black has-text-centered"><b>Full Listing</b></h5>
+                    <a href="listing/listing#/index.html"></a>
                 </div>
             </div>
         </div>
 
         <!-- col 3 -->
         <div class="column is-one-quarter">
-            <h3>Listing 3 Title</h3>
-            <h4>Listing 3 Region</h4>
+            <h3><b>Large Mifflin Attic</b></h3>
+            <h4><b>Mifflin</b></h4>
             <div class="box">
                 <div class="image">
-                    <b>Listing's first image</b> <br> 
-                    <!-- Insert image here -->
-                    ipsum dolor sit amet consectetur adipisicing elit. Corporis dolore dicta molestiae quos deserunt qui quas quisquam explicabo. Alias, facilis fugit omnis ipsam exercitationem aliquid dicta! Totam sapiente ipsa illum.
+                    <img id="img" src="images/listing3.0.jpg" alt="oops">
                 </div>
 
-                <div class="middle">
-                    <div class="text">Full Listing</div>
+                <br><div class="w3-hover-opacity">
+                    <h5 class="w3-hover-black has-text-centered"><b>Full Listing</b></h5>
+                    <a href="listing/listing#/index.html"></a>
                 </div>
             </div>
         </div>
 
         <!-- col 4 -->
         <div class="column is-one-quarter">
-            <h3>Listing 4 Title</h3>
-            <h4>Listing 4 Region</h4>
+            <h3><b>The Hub - 8th floor - Entire Unit</b></h3>
+            <h4><b>State-Langdon</b></h4>
             <div class="box">
                 <div class="image">
-                    <b>Listing's first image</b> <br>
-                    <!-- Insert image here -->
-                     ipsum dolor sit amet consectetur adipisicing elit. Corporis dolore dicta molestiae quos deserunt qui quas quisquam explicabo. Alias, facilis fugit omnis ipsam exercitationem aliquid dicta! Totam sapiente ipsa illum.
+                    <img id="img" src="images/listing4.0.jpg" alt="oops">
                 </div>
 
-                <div class="middle">
-                    <div class="text">Full Listing</div>
+                <br><div class="w3-hover-opacity">
+                    <h5 class="w3-hover-black has-text-centered"><b>Full Listing</b></h5>
+                    <a href="listing/listing#/index.html"></a>
                 </div>
             </div>
         </div>
