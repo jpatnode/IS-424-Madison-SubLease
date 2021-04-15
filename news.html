@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Madison SubLeases</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-home {font-size:250px}
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Home</a>
+    <a href="aboutus.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</a>
+    <a href="theteam.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">The Team</a>
+    <a href="news.html" class="w3-bar-item w3-button w3-padding-large w3-white">News</a>
+    <a href="contact_us.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact Us</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">About Us</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">The Team</a>
+    <a href="news.html" class="w3-bar-item w3-button w3-padding-large">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Contact Us</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:80px 16px">
+  <h1 class="w3-margin w3-jumbo">The Sublet Scoop</h1>
+  <p class="w3-xlarge">The Latest News on Sublets in the Madison Area</p>
+</header>
+
+<!-- First Grid-->
+<div class="w3-padding-24 w3-container w3-center" style="background-image: url(./capitolfrombascom.jpeg); background-size: cover;">
+  <div class="w3-row-padding w3-padding-16 w3-center w3-content">
+    <div class="w3-quarter w3-white w3-padding-16 w3-margin" style= "padding: 1em; opacity:0.875;">
+      <h2>Where is the hottest spot to sublet in the Madison community?</h2>
+      <h5 class="w3-padding-32 w3-white"> With students leaving for the summer, Mifflin Street is starting to draw in more and more vacancies, but for good reason. These vacancies will fill up quickly as seasonal students are finding the unqiue culture to be particular attractive for the summer lifestyle. With lounging porches and large backyards, these sublets will fit your needs.</h5>
+	</div>
+	<div class="w3-third w3-white w3-padding-16 w3-margin" style= "padding: 1em; opacity:0.875;">
+	  <img src="Student Housing.jpeg" style="height:200px; padding: .25em;">  
+      <h2>How did these students find their dream apartment?</h2>
+      <h5 class="w3-padding-24 w3-white"> With summer around the corner, these students tried for months searching for the perfect apartment. With few chances left, they stumble upon Madison  Sublease to meet their needs.</h5>
+	</div>
+	<div class="w3-quarter w3-white w3-padding-16 w3-margin" style= "padding: 1em; opacity:0.875;">
+      <h2>The perfect study spot - the up and coming local coffee shop</h2>
+      <h5 class="w3-padding-32 w3-white"> Found on State Street and the East Side, Grace Coffee Co. is the new trendy coffee shop in Madison, WI. Decored with modern features and plants, the owners invite students to study in the stimulating atmosphere. With fast internet and highly-caffeinated drinks students can channel their best study habits at Grace Coffee Co.<br><br></h5>
+	</div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+  <div class="w3-xlarge w3-padding-24">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
