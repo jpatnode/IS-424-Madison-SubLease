@@ -142,7 +142,7 @@ if (isset($_POST['searchResult'])) {
 	$bedrooms=trim($_POST['bedrooms']);
 	$pets=trim($_POST['pets']);
 	$bathrooms=trim($_POST['bathrooms']);
-	$query = "SELECT street_address, price, description, parking, bedrooms, pets, bathrooms FROM LISTING WHERE price BETWEEN '$minimum' AND '$maximum'
+	$query = "SELECT listing_name, street_address, price, description, parking, bedrooms, pets, bathrooms FROM LISTING WHERE price BETWEEN '$minimum' AND '$maximum'
 	AND description='$location' AND parking='$parking' AND bedrooms='$bedrooms' AND pets='$pets' AND bathrooms='$bathrooms'";
 	$result = mysqli_query($conn, $query);
 
@@ -153,6 +153,7 @@ if (isset($_POST['searchResult'])) {
 	$num = mysqli_num_rows($result);
 	if ($num>0) {
 		echo "<table width=950> <tr bgcolor='#ff0000'>";
+		echo "<td> Listing Title </td>";
 		echo "<td> Address </td>";
 		echo "<td> General Location </td>";
 		echo "<td> Bedrooms </td>";
@@ -164,6 +165,7 @@ if (isset($_POST['searchResult'])) {
 			if ($count==0) {
 				while ($row = mysqli_fetch_assoc($result)) {
 					echo "<tr>";
+					echo "<td> <a href='listingResult.html' class='w3-bar-item w3-button w3-padding-large'>".$row["listing_name"]."</a></td>";
 					echo "<td>".$row["street_address"]."</td>";
 					echo "<td>".$row["description"]."</td>";
 					echo "<td>".$row["bedrooms"]."</td>";
@@ -189,6 +191,7 @@ if (isset($_POST['searchResult'])) {
 			else {
 				while ($row = mysqli_fetch_assoc($result)) {
 					echo "<tr bgcolor=CCD1AB>";
+					echo "<td> <a href='listingResult.html' class='w3-bar-item w3-button w3-padding-large'".$row["listing_name"]."</a></td>";
 					echo "<td>".$row["street_address"]."</td>";
 					echo "<td>".$row["description"]."</td>";
 					echo "<td>".$row["bedrooms"]."</td>";
