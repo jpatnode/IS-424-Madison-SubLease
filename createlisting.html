@@ -1,0 +1,181 @@
+<html lang="en"><head><title>Create Listing</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+   <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+    </head>
+    
+    <body data-new-gr-c-s-check-loaded="14.1002.0" data-gr-ext-installed="">
+    
+    <!-- Navbar -->
+    <div class="w3-top">
+      <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="home.html" class="w3-bar-item w3-button w3-padding-large w3-white">Return to the Home Page</a>
+      </div>
+    
+      <!-- Navbar on small screens -->
+      <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="home.html" class="w3-bar-item w3-button w3-padding-large">Return to the Home Page</a>
+      </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding:64px 16px">
+      <h1 class="w3-margin w3-jumbo">Create your sublease posting</h1>
+      <h3> Fill out the form below </h3>
+    </header>
+    
+    <br>
+     <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-container w3-red">
+        <table>
+        <tbody><tr>
+        <td>
+        <!-- <h2 align="center">Choose Your Filters</h2> -->
+        <form method="post" action="listingreport.php">
+        
+        <!-- Title -->
+          <h4> Create Listing Title: </h4>     
+        <div class="control">
+          <input type="text" size="30" class="input" name="title" id="title" placeholder="Ex: Hub, 1bd & bath, June-Aug15">
+        </div>
+        
+        <!-- Pictures -->
+        <br>
+        <h4>Pictures</h4>
+        <p>Select all necessary image files at once</p>
+        <form action="/action_page.php">
+          <label for="files"></label>
+          <input type="file" id="files" name="files" accept="image/*" multiple>
+        <!-- <input type="submit"> -->
+        </form>
+        <!-- Address -->
+        <br>
+        <h4>Address</h4>
+        <div class="control">
+          <input type="text" size="35" class="input" name="address" id="address" placeholder="123 W Mifflin St, Madison, WI 53703">
+        </div>
+        <!-- Region -->
+        <br>
+        <h4> Select region: </h4>
+        <select id="location" name="location"> 
+            <option value="statelangdon">State-Langdon</option>
+            <option value="southcamp">South Campus</option>
+            <option value="mifflin">Mifflin</option>
+            <option value="capitol">Capitol Square</option>
+            <option value="regent">Regent</option>
+            <option value="universityave">University Ave</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Parking? -->
+        <br><br>
+        <h4> Parking available? </h4>
+        <select id="parking" name="parking"> 
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <!-- Bd available -->
+        <br><br>
+        <h4> Bedrooms Available: </h4>
+        <select id="bedrooms" name="bedrooms"> 
+          <!-- Why would anyone make/search 0bd?
+            <option value="0">0</option> -->
+            <option value=".5">.5 (shared) </option>
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="3+">3+</option>
+        </select>
+        <!-- Br available -->
+        <br><br>
+        <h4>Bathrooms Available:</h4>
+        <select name="bathrooms" id="bathrooms">
+          <option value=".5">.5 (shared) </option>
+          <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2+">2+</option>
+        </select>
+        <!-- bd total -->
+        <br><br>
+        <h4>Total Bedrooms:</h4>
+        <select name="totalbd" id="totalbd">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="6+">6+</option>
+        </select>
+        <!-- br total -->
+        <br><br>
+        <h4>Total Bathrooms</h4>
+        <select name="totalbr" id="totalbr">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="6+">6+</option>
+        </select>
+        <!-- Pets? -->
+        <br><br>
+        <h4> Pets allowed? </h4>
+        <select id="pets" name="pets"> 
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <!-- dates -->
+        <br><br>
+        <h4> When will the unit be available? Add notes here</h4> 
+        <div class="control">
+          <input type="text" size= 50 class="input" name="time" id="time" placeholder="Available Summer 2021, lease ends Aug15">
+        </div>
+
+        <!-- post -->
+        <br> <br>
+        <input type="submit" name="post" value="Post">
+  </form>
+        <br>
+  </td>
+        <td align="right">
+        <img src="madison2.jpg" width="400" align="right">
+        </td> </tr> </tbody></table>
+        </div>
+    
+      </div>
+    </div>
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-white">  
+      <div class="w3-xlarge w3-padding-32">
+        <h5>Madison Subleasers </h5>
+        <h6> Connect With Us </h6>
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+     </div>
+    </footer>
+    
+    <!-- <br>
+    <b>Notice</b>:  Undefined variable: myLocalHost in <b>/storage/ssd2/601/16529601/public_html/connect.inc.php</b> on line <b>7</b><br>
+    <br>
+    <b>Warning</b>:  mysqli_connect(): (HY000/1045): ProxySQL Error: Access denied for user 'danield4'@'2a02:4780:bad:f00d::12' (using password: YES) in <b>/storage/ssd2/601/16529601/public_html/connect.inc.php</b> on line <b>7</b><br>
+    Connection failed:  -->
+  </body></html>

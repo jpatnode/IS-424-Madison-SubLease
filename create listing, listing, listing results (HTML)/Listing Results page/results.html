@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Results Page</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+</head>
+
+<style>
+
+
+/* Weird: image sizing worked with "img" as id for all images but not class="img" */
+.box{
+    height: 400px;
+}
+#img{
+    height: 300px;
+} 
+</style>
+
+<body>
+    
+    <!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Back to search filters</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Return to the Home Page</a>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:64px 16px">
+    <h2 class="w3-margin w3-jumbo">Listing Search Results</h2>
+</header>
+
+<!-- images-->
+<div class="section">
+    <div class="columns">
+        <!-- col 1 -->
+        <div class="img column is-one-quarter">
+            <!-- Will need to 
+            link the title and region headings
+        with the listing -->
+            <h3><b>1 Bedroom - Beautiful View - The James</b></h3>
+            <h4><b>University Ave</b></h4>
+            <div class="box">
+                <div class="image">
+                    <img id="img" src="images/listing1.0.jpg" alt="oops">
+                </div>
+
+                <br><div class="w3-hover-opacity">
+                    <h5 class="w3-hover-black has-text-centered"><b>Full Listing</b></h5>
+                    <a href="listing/listing#/index.html"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- col 2 -->
+        <div class="column is-one-quarter">
+            <h3><b>Large Bedroom near Langdon</b></h3>
+            <h4><b>State-Langdon</b></h4>
+            <div class="box">
+                <div class="image">
+                    <img id="img" src="images/listing2.0.jpg" alt="oops">
+                </div>
+
+                <br><div class="w3-hover-opacity">
+                    <h5 class="w3-hover-black has-text-centered"><b>Full Listing</b></h5>
+                    <a href="listing/listing#/index.html"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- col 3 -->
+        <div class="column is-one-quarter">
+            <h3><b>Large Mifflin Attic</b></h3>
+            <h4><b>Mifflin</b></h4>
+            <div class="box">
+                <div class="image">
+                    <img id="img" src="images/listing3.0.jpg" alt="oops">
+                </div>
+
+                <br><div class="w3-hover-opacity">
+                    <h5 class="w3-hover-black has-text-centered"><b>Full Listing</b></h5>
+                    <a href="listing/listing#/index.html"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- col 4 -->
+        <div class="column is-one-quarter">
+            <h3><b>The Hub - 8th floor - Entire Unit</b></h3>
+            <h4><b>State-Langdon</b></h4>
+            <div class="box">
+                <div class="image">
+                    <img id="img" src="images/listing4.0.jpg" alt="oops">
+                </div>
+
+                <br><div class="w3-hover-opacity">
+                    <h5 class="w3-hover-black has-text-centered"><b>Full Listing</b></h5>
+                    <a href="listing/listing#/index.html"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+    <div class="w3-xlarge w3-padding-24">
+      <h5> Madison Subleasers </h5>
+      <h6> Connect With Us </h6>
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+   </div>
+  </footer>
+</body>
+</html>
