@@ -88,10 +88,11 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 			
 			echo "<META HTTP-EQUIV=\"refresh\" content=\"0; URL=decisionPage.html\"> ";
 		}
+		else {
+			echo "Invalid username/password!" ;
+		}
 	}
-	else {
-		echo "Invalid username/password!" ;
-	}
+	
 	}
 mysqli_close($conn);
 ?>
