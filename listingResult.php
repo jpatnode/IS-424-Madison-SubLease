@@ -46,17 +46,25 @@ $link = $_SESSION['link'];
 
 $listingID = $_SESSION['listingID'];
 $id = $_SESSION['id'];
-$query = "SELECT listing_id,listing_name, street_address, price, description, parking, bedrooms, pets, bathrooms, zip FROM LISTING WHERE listing_id = $listingID";
+$query = "SELECT listing_id,listing_name, street_address, price, description, parking, bedrooms, pets, bathrooms, zip, date_range, user_id FROM LISTING WHERE listing_id = $listingID";
 $result = mysqli_query($conn, $query);
 if (!$result) {
 		die("Cannot process select query");
 }
 while ($row = mysqli_fetch_assoc($result)) {
+	$userid = $row['user_id'];
+	$query2 = "SELECT phone_num, user_email FROM user WHERE (user_id = $userid)";
+	$result2 = mysqli_query($conn, $query2);
+	if (!$result) {
+		die("Cannot process select query");
+	}
+	while ($row2 = mysqli_fetch_assoc($result2)) {
 ?>
 	
 	<h4 class="w3-margin w3-jumbo"><?php echo "".$row['listing_name'].""; ?></h4>
         <h2 class="w3-margin"><?php echo "".$row['description'].""; ?></h2>
         <h2 class="w3-margin"><?php echo "".$row['street_address'].", ".$row['zip'].""; ?></h2>
+		<h2 class="w3-margin"><?php echo "".$row2['phone_num']." or ".$row2['user_email'].""; ?></h2>
 
     </header>
     <!-- top row: images -->
@@ -97,17 +105,19 @@ while ($row = mysqli_fetch_assoc($result)) {
 						$parking = "No";
 					}
 					echo "$parking";
-	}				?> </li>
+	?> </li>
                 </ul>
             </div>
         </div>
     </div>
 
     <br><div class="section3">
-        <div class="has-text-centered"> <b>When will unit be available? Additional notes:</b> We are all seniors moving out after finals. Available as soon as May 10. Call 608-123-4567 with inquiries</div>
+        <div class="has-text-centered"> <b>When will unit be available? Additional notes:</b> <?php echo "".$row['date_range'].""; ?></div>
     </div>
     
-<?php 
+<?php
+	}
+}
 $queryImages = "SELECT * FROM images where listing_id = $listingID";
 $resultImages = mysqli_query($conn, $queryImages);
 if (!$resultImages) {
