@@ -13,9 +13,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
 <body>
-<?php
-session_start();
-?>
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -29,38 +26,35 @@ session_start();
     <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Return to the Home Page</a>
   </div>
 </div>
+<?php
+include("connect.inc.php");
+include("auth.inc.php");
+$id=1;
+
+?>
 
 <!-- Header -->
-<header class="w3-container w3-red w3-center" style="padding:32px 16px">
-  <h1 class="w3-margin w3-jumbo">Begin Your Search</h1>
-</header>
  <div class="w3-row-padding w3-padding-64 w3-container" <div class="w3-padding-64 w3-container" style="background-image: url(./picnicpoint.jpeg); background-size: cover;">
   <div class="w3-content">
     <div class="w3-container w3-white" style="padding: 1em; opacity:.875">
-      <h1 align="center" text-color="black"> Sign In</h1>
-	  <table align="center">
+      <h1 align="center" text-color="black"> What Would You Like to Do? <?echo $id;?></h1>
+	  <table style="text-align: center" align="center">
 	  <tr>
 	  <td>
-		<form action="login.php" method="post" align="center">
-		Username:
-		<input name="username" type="text" id="username" size="20">  
-		<br /> <br />
-		Password:
-		<input name="password" type="password" id="password" size="20">
-		<br /> <br />
-		<input type="submit" class = "w3-button w3-black w3-padding-large w3-large w3-margin-top" name="submit" value="Login">
-
+		<form method="post" action="createListing.php">
+		<button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Post a Sublease</button>
+		</form>
+		<br> <br>
+		<form method="post" action="searchPage.php">
+		<button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search for a Sublease</button>
+		</form>
+		<br> <br>
+		<form method="post" action="myListings.php">
+		<button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Check My Listings</button>
 		</form>
 	   </td>
     </div>
-	</tr>
-	<tr>
-	<td>
-	<h4 align="center">Don't have an account? Click here to sign up! </h4>
-	<form method="post" action="signup.php" align="center">
-    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Sign Up</button>
-    </form>
-	</td></tr></table>
+	</tr></table>
   </div>
   <br> <br> <br>
   
@@ -68,36 +62,7 @@ session_start();
 
 </div>
 
-<?php
-include("connect.inc.php");
 
-if (isset($_POST["username"]) && isset($_POST["password"])) {
-	$user=trim($_POST['username']);
-	$pass=trim($_POST['password']);
-	$query = "SELECT user_id, user_name, login_password FROM user WHERE user_name='$user' AND login_password='$pass'";
-	$result = mysqli_query($conn, $query);
-
-	if (!$result)
-		die("Cannot process select query");
-
-	$num = mysqli_num_rows($result);
-	if ($_POST['submit']) {
-		if ($num==1) {
-			while ($row = mysqli_fetch_assoc($result)) {
-				$_SESSION['id'] = $row["user_id"];
-				$_SESSION['logABC'] = "FREE";
-			}
-			
-			echo "<META HTTP-EQUIV=\"refresh\" content=\"0; URL=decisionPage.php\"> ";
-		}
-		else {
-			echo "Invalid username/password!" ;
-		}
-	}
-	
-	}
-mysqli_close($conn);
-?>
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
   <div class="w3-xlarge w3-padding-32">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>

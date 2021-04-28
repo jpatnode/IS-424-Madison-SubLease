@@ -13,22 +13,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
 <body>
-
 <?php
-$id = 1;
-// $id=$_SESSION['id'];
+include("connect.inc.php");
+include("auth.inc.php");
+
+$id=$_SESSION['id'];
 ?>
 
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Return to the Home Page</a>
+    <a href="decisionPage.php" class="w3-bar-item w3-button w3-padding-large w3-white">Return to the Action Page</a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Return to the Home Page</a>
+    <a href="decisionPage.php" class="w3-bar-item w3-button w3-padding-large">Return to the Action Page</a>
   </div>
 </div>
 
@@ -66,15 +67,15 @@ $id = 1;
           $<input type="text" size="5" class="input" name="price" id="price" placeholder="895">
         </div>
         
-        <!-- Pictures
+        <!-- Pictures --
         <br>
         <h4>Pictures</h4>
         <p>Select all necessary image files at once</p>
-        <form action="/action_page.php">
-          <label for="files"></label>
-          <input type="file" id="files" name="files" accept="image/*" multiple>
-        <!-- <input type="submit"> --
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="my_image[]" multiple>
+            <input type="submit" value="Upload Images">
         </form>
+		
         <!-- Address -->
         <br>
         <h4>Address</h4>
@@ -175,8 +176,6 @@ $id = 1;
 </div>
 
 <?php
-include("connect.inc.php");
-//include("auth.inc.php");
 
 if (isset($_POST['postListing'])) {
 	$price=trim($_POST['price']);
@@ -229,17 +228,16 @@ if (isset($_POST['postListing'])) {
 		$resultadd=mysqli_query($conn,$sqladd);
 		if (!$resultadd) {
 			die(mysqli_error($conn));
-		}
-		echo "<h4 class='w3-padding-24' align='center'> Your listing was posted successfully!</h4>";
+		}		
+		echo "<META HTTP-EQUIV=\"refresh\" content=\"0; URL=listingConfirm.php\"> ";
 		//echo "<script type=\'text/javascript\'>
             //alert('Listing created successfully!');
             //</script>";
 	}
 	else {
-		echo "<h4 class='w3-padding-24' align='center'> A listing with these specifications already exists!</h4>";
-		//echo "<script type=\'text/javascript\'>
-           // alert('A listing with these specifications has already been created!');
-            //</script>"
+		echo "<script type=\'text/javascript\'>
+           alert('A listing with these specifications has already been created!');
+           </script>";
 	}
 }
 

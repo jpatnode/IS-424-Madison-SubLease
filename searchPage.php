@@ -13,21 +13,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
 <body>
-
 <?php
-// $id=$_SESSION['id'];
+include("connect.inc.php");
+include("auth.inc.php");
+$id=$_SESSION['id'];
 ?>
 
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Return to the Home Page</a>
+    <a href="decisionPage.php" class="w3-bar-item w3-button w3-padding-large w3-white">Return to the Action Page</a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Return to the Home Page</a>
+    <a href="decisionPage.php" class="w3-bar-item w3-button w3-padding-large">Return to the Action Page</a>
   </div>
 </div>
 
@@ -130,8 +131,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
 	<h3> Your Search Results </h3>
 <?php
-include("connect.inc.php");
-//include("auth.inc.php");
 
 $count = 0;
 if (isset($_POST['searchResult'])) {
@@ -142,7 +141,7 @@ if (isset($_POST['searchResult'])) {
 	$bedrooms=trim($_POST['bedrooms']);
 	$pets=trim($_POST['pets']);
 	$bathrooms=trim($_POST['bathrooms']);
-	$query = "SELECT listing_name, street_address, price, description, parking, bedrooms, pets, bathrooms FROM LISTING WHERE price BETWEEN '$minimum' AND '$maximum'
+	$query = "SELECT listing_id,listing_name, street_address, price, description, parking, bedrooms, pets, bathrooms FROM LISTING WHERE price BETWEEN '$minimum' AND '$maximum'
 	AND description='$location' AND parking='$parking' AND bedrooms='$bedrooms' AND pets='$pets' AND bathrooms='$bathrooms'";
 	$result = mysqli_query($conn, $query);
 
@@ -162,10 +161,12 @@ if (isset($_POST['searchResult'])) {
 		echo "<td> Parking </td>";
 		echo "<td> Pets </td></tr>";
 		for ($i=0;$i<$num;$i++) {
-			if ($count==0) {
-				while ($row = mysqli_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				if ($count==0) {
 					echo "<tr>";
-					echo "<td> <a href='listingResult.html' class='w3-bar-item w3-button w3-padding-large'>".$row["listing_name"]."</a></td>";
+					echo "<td> <form method = 'post' action = 'searchPage.php'>
+					<input type = 'hidden' value = ".$row["listing_id"]." name = 'listingID' id = 'listingID'>
+					<input type = 'submit' name = 'listingResult' class='w3-bar-item w3-button w3-padding-large' value = ".$row["listing_name"]."></form></td>";
 					echo "<td>".$row["street_address"]."</td>";
 					echo "<td>".$row["description"]."</td>";
 					echo "<td>".$row["bedrooms"]."</td>";
@@ -187,11 +188,11 @@ if (isset($_POST['searchResult'])) {
 					}
 					$count = 1;
 				}
-			}
-			else {
-				while ($row = mysqli_fetch_assoc($result)) {
-					echo "<tr bgcolor=CCD1AB>";
-					echo "<td> <a href='listingResult.html' class='w3-bar-item w3-button w3-padding-large'".$row["listing_name"]."</a></td>";
+				else {
+					echo "<tr bgcolor='#ff9696'>";
+					echo "<td> <form method = 'post' action = 'searchPage.php'>
+					<input type = 'hidden' value = ".$row["listing_id"]." name = 'listingID' id = 'listingID'>
+					<input type = 'submit' name = 'listingResult' class='w3-bar-item w3-button w3-padding-large' value = ".$row["listing_name"]."></form></td>";
 					echo "<td>".$row["street_address"]."</td>";
 					echo "<td>".$row["description"]."</td>";
 					echo "<td>".$row["bedrooms"]."</td>";
@@ -219,6 +220,12 @@ if (isset($_POST['searchResult'])) {
 	else {
 		echo "Unfortunately, no listings match! Please try again with new specifications.";
 	}
+}
+if (isset($_POST['listingResult'])) {
+	$listingID = $_POST['listingID'];
+	$_SESSION['listingID'] = $listingID;
+	$_SESSION['link'] = 'searchPage.php';
+	echo "<META HTTP-EQUIV=\"refresh\" content=\"0; URL=listingResult.php\"> ";
 }
 
 mysqli_close($conn);
