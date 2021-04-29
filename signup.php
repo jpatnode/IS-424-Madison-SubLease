@@ -115,9 +115,7 @@ if (isset($_POST["username"]) && isset($_POST["password1"])) {
 					die(mysqli_error($conn));
 				}
 				else {
-					$_SESSION['id'] = $user;
-					$_SESSION['logABC'] = "FREE";
-					echo "<META HTTP-EQUIV=\"refresh\" content=\"0; URL=decisionPage.html\"> ";
+					echo "<META HTTP-EQUIV=\"refresh\" content=\"0; URL=login.php\"> ";
 				}
 			}
 			else {
